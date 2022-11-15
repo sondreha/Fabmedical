@@ -49,15 +49,15 @@ git add .
 git commit -m "Initial Commit"
 
 # Get ACR credentials and add them as secrets to Github
-ACR_CREDENTIALS=$(az acr credential show -n fabmedical$MCW_SUFFIX)
-ACR_USERNAME=$(jq -r -n '$input.username' --argjson input "$ACR_CREDENTIALS")
-ACR_PASSWORD=$(jq -r -n '$input.passwords[0].value' --argjson input "$ACR_CREDENTIALS")
+#ACR_CREDENTIALS=$(az acr credential show -n fabmedical$MCW_SUFFIX)
+#ACR_USERNAME=$(jq -r -n '$input.username' --argjson input "$ACR_CREDENTIALS")
+#ACR_PASSWORD=$(jq -r -n '$input.passwords[0].value' --argjson input "$ACR_CREDENTIALS")
 
 GITHUB_TOKEN=$MCW_GITHUB_TOKEN
 cd ~/Fabmedical
 echo $GITHUB_TOKEN | gh auth login --with-token
-gh secret set ACR_USERNAME -b "$ACR_USERNAME"
-gh secret set ACR_PASSWORD -b "$ACR_PASSWORD" 
+#gh secret set ACR_USERNAME -b "$ACR_USERNAME"
+#gh secret set ACR_PASSWORD -b "$ACR_PASSWORD" 
 
 # Committing repository
 cd ~/Fabmedical
